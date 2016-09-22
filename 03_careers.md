@@ -1,7 +1,7 @@
 ---
-layout: page
 title: Careers
-permalink: /careers/
+permalink: "/careers/"
+layout: page
 ---
 
 ## Great people, great work

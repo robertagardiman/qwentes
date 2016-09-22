@@ -1,9 +1,11 @@
 ---
+title: Fendi Roma
+date: 2016-09-04 15:21:59 Z
+permalink: "/work/fendi-roma/"
+categories:
+- jekyll
+- update
 layout: post
-title:  Fendi Roma
-date:   2016-09-04 17:21:59 +0200
-categories: jekyll update
-permalink: /work/fendi-roma/
 ---
 
 ## Fendi Roma

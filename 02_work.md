@@ -1,7 +1,7 @@
 ---
-layout: page
 title: Work
-permalink: /work/
+permalink: "/work/"
+layout: page
 ---
 
 ## We design & code for every screen

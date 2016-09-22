@@ -1,9 +1,11 @@
 ---
+title: Emilio Pucci
+date: 2016-09-01 15:21:59 Z
+permalink: "/work/emilio-pucci/"
+categories:
+- jekyll
+- update
 layout: post
-title:  Emilio Pucci
-date:   2016-09-01 17:21:59 +0200
-categories: jekyll update
-permalink: /work/emilio-pucci/
 ---
 
 ## Emilio Pucci

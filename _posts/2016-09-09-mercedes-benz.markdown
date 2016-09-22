@@ -1,9 +1,11 @@
 ---
+title: Mercedes-Benz Advanced Design
+date: 2016-09-09 15:21:59 Z
+permalink: "/work/mercedes-benz/"
+categories:
+- jekyll
+- update
 layout: post
-title:  Mercedes-Benz Advanced Design
-date:   2016-09-09 17:21:59 +0200
-categories: jekyll update
-permalink: /work/mercedes-benz/
 ---
 
 ## Mercedes-Benz Advanced Design

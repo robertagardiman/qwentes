@@ -1,7 +1,7 @@
 ---
-layout: page
 title: Company
-permalink: /company/
+permalink: "/company/"
+layout: page
 ---
 
 ## Strategic consulting, design & technology
