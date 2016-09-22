@@ -3,14 +3,14 @@ title: Work
 permalink: "/work/"
 layout: page
 images:
-  - image_path: /img/work/work-09.jpg
-    title: PepsiCo Design & Innovation
-  - image_path: /img/work/work-08.jpg
-    title: Mercedes-Benz Advanced Design
-  - image_path: /img/work/work-07.jpg
-    title: Fendi Roma
-  - image_path: /img/work/work-06.jpg
-    title: Emilio Pucci
+- image_path: "/img/work/work-09.jpg"
+  title: PepsiCo Design & Innovation
+- image_path: "/img/work/work-08.jpg"
+  title: Mercedes-Benz Advanced Design
+- image_path: "/img/work/work-07.jpg"
+  title: Fendi Roma
+- image_path: "/img/work/work-06.jpg"
+  title: Emilio Pucci
 ---
 
 ## We design & code for every screen
