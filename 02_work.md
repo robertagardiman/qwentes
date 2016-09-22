@@ -1,7 +1,6 @@
 ---
 title: Work
 permalink: "/work/"
-layout: page
 images:
 - image_path: "/img/work/work-09.jpg"
   title: PepsiCo Design & Innovation
@@ -11,6 +10,9 @@ images:
   title: Fendi Roma
 - image_path: "/img/work/work-06.jpg"
   title: Emilio Pucci
+- image_path: "/img/work/work-05.jpg"
+  title: Zuhair Murad
+layout: page
 ---
 
 ## We design & code for every screen
