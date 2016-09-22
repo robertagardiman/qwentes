@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="page-content home">
+
+    <div class="projects-list-home">
+        {% for post in site.posts limit:1 %}
+        <div>
+
+            <span class="img-copy">&copy; Image courtesy of {{ post.title }}</span>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>

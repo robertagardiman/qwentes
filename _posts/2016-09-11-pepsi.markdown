@@ -1,0 +1,13 @@
+---
+title: Pepsi
+date: 2016-09-11 15:21:59 Z
+permalink: "/work/pepsi/"
+categories:
+- jekyll
+- update
+layout: post
+---
+
+PepsiCo Design and Innovation
+
+![jekyll-docs](../../img/pepsi-home.jpg)
