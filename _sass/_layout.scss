@@ -25,9 +25,22 @@ a.site-title {
     display: block;
     @include reset-hover-links();
     &:hover {
-            @include reset-hover-links();
-        }
+        @include reset-hover-links();
+    }
+    .logo{
+        width: 120px;
+        height: 40px;
+        animation: sprite 5s steps(32) infinite alternate;
+    }
+    .logo-white{
+        background: url(../img/white-small.png) no-repeat;
+    }
+    .logo-black{
+        background: url(../img/black-small.png) no-repeat;
+    }
 }
+
+
 
 nav.home{
     a{
@@ -40,6 +53,7 @@ nav.home{
 
 nav {
     font-weight: 100;
+    margin-left: 3px;
     ul{
         margin: 0;
     }
@@ -50,6 +64,11 @@ nav {
     a.active{
         @include hover-links($text-titles-color);
     }
+}
+
+@keyframes sprite {
+    from {background-position: 0px;}
+    to {background-position: -3840px;}
 }
 
 
@@ -121,7 +140,7 @@ nav {
 .projects-list-home div{
     height: 100%;
     width: 100%;
-    background: url(../img/home/pepsi-home.jpg) center;
+    background: url(../img/home/pepsi-home-comp.jpg) center;
     background-size: cover;
     z-index: 1;
 }
