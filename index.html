@@ -1,17 +1,31 @@
 ---
+images:
+- image_path: "/img/home/pepsi-home.jpg"
+  title: Pepsi
+- image_path: "/img/home/luceplan-home.jpg"
+  title: Luceplan
+- image_path: "/img/home/fendi-home.jpg"
+  title: Fendi
 layout: default
 ---
 
 <div class="page-content home">
 
     <div class="projects-list-home">
-        {% for post in site.posts limit:1 %}
-        <div>
 
-            <span class="img-copy">&copy; Image courtesy of {{ post.title }}</span>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-        </div>
-        {% endfor %}
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				{% for image in page.images %}
+				<div class="item{% if forloop.index0 == 0 %} active {% endif %}" style="background: url({{ image.image_path }}) center; background-size: cover;">
+					<span class="img-copy">&copy; Image courtesy of {{ image.title }}</span>
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+
     </div>
 
 </div>

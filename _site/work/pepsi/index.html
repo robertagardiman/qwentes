@@ -108,7 +108,62 @@
         </div>
     </div>
 </footer>
+<object id="svgLogo" data="img/black-svg.svg" type="image/svg+xml"></object>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript">
+    $("#myCarousel").carousel();
+    var stile = $("#myCarousel .item.active").attr("style");
+    stile = stile.substring(stile.lastIndexOf("(")+1,stile.lastIndexOf(")"));
+    console.log(stile);
+
+    $("#myCarousel").swipe({
+        swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+            if (direction == 'left') $(this).carousel('next');
+            if (direction == 'right') $(this).carousel('prev');
+        },
+        allowPageScroll:"vertical"
+    });
+
+    window.onload=function() {
+        var a = document.getElementById("Page-1");
+        console.log(a);
+    };
+
+    // fire the event when the content of an item change
+    $('#myCarousel').bind('slide.bs.carousel', function (e) {
+        setTimeout(function(){
+            stile = $("#myCarousel .item.active").attr("style");
+            stile = stile.substring(stile.lastIndexOf("(")+1,stile.lastIndexOf(")"));
+            console.log(stile);
+            console.log("SVG: " + $("#myCarousel .item.active"));
+            getImageBrightness(stile,function(brightness) {
+                console.log("Brightness "+ stile +": "+brightness);
+                var brightnessValue = parseInt(brightness);
+                console.log(brightnessValue);
+                if(brightnessValue > 127){
+                    console.log("IF");
+                    /*$(".logo").removeClass("logo-white");
+                    $(".logo").addClass("logo-black");*/
+
+                    $("nav").addClass("black");
+                }else{
+                    console.log("ELSE");
+                    /*$(".logo").removeClass("logo-black");
+                    $(".logo").addClass("logo-white");*/
+
+                    $("nav").removeClass("black");
+                }
+            });
+        }, 1000);
+        
+        
+        /**/
+    });
+</script>
 
     </body>
 
