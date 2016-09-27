@@ -9,7 +9,15 @@ header {
     z-index: 2;
     color: $home-header-color;
 
-    width: 114px;
+    min-width: 120px;
+
+    @media(max-width: $screen-xs-max){
+        position: static;
+        width: 100%;
+        padding: 5%;
+    }
+
+
 
     /*a{
         &:hover {
@@ -21,7 +29,7 @@ header {
 a.site-title {
     font-size: 26px;
     letter-spacing: -1px;
-    padding: 0 0 30px 0;
+    padding: 0 0 40px 0;
     display: block;
     @include reset-hover-links();
     &:hover {
@@ -83,19 +91,50 @@ nav {
     a.active{
         @include hover-links($text-titles-color);
     }
+    @media(max-width: $screen-xs-max){
+        margin-top: 20px;
+    }
+}
+
+.navbar-default{
+    background-color: transparent;
+    border: 0px solid transparent;
+    position: relative;
+    min-height: 0;
+    .navbar-collapse{
+        padding:0;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+
+    }
+    .navbar-toggle{
+        border-color: transparent;
+        float: none;
+        padding: 0;
+        margin: 0;
+        .icon-bar {
+            background-color: $text-titles-color;
+            width: 28px;
+        }
+        .icon-bar + .icon-bar {
+            margin-top: 8px;
+        }
+        .long{
+            width: 40px;
+        }
+    }
+
+    .collapse{}
+
+
+
 }
 
 @keyframes sprite {
     from {background-position: 0px;}
     to {background-position: -3840px;}
-}
-
-#svgLogo{
-    display: none;
-}
-
-#Page-1 > g{
-    
 }
 
 
@@ -156,6 +195,10 @@ nav {
                     color: #fff;
                 }
             }
+        }
+        @media(max-width: $screen-xs-max){
+            width: calc(100% - (#{$spacing-content}*2 + 5px) );
+            margin: $spacing-content;
         }
         
     }
