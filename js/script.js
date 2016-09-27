@@ -33,15 +33,22 @@ function getImageBrightness(imageSrc,callback) {
     }
 }
 
-
-/*$(document).ready(function() {
-    getImageBrightness("img/home/pepsi-home.jpg",function(brightness) {
-        console.log("Brightness Pepsi: "+brightness);
+// Transform the navigation in black or white, depending of the brightness of the image
+function blackOrWhiteHeader(stile){
+    getImageBrightness(stile,function(brightness) {
+        console.log("Brightness "+ stile +": "+brightness);
+        var brightnessValue = parseInt(brightness);
+        console.log(brightnessValue);
+        if(brightnessValue > 127){
+            //need black navigation
+            $(".logo.logo-white").addClass("hiddenLogo");
+            $(".logo.logo-black").removeClass("hiddenLogo");
+            $("nav").addClass("black");
+        }else{
+            //need white navigation
+            $(".logo.logo-black").addClass("hiddenLogo");
+            $(".logo.logo-white").removeClass("hiddenLogo");
+            $("nav").removeClass("black");
+        }
     });
-    getImageBrightness("img/home/fendi-home.jpg",function(brightness) {
-        console.log("Brightness Fendi: "+brightness);
-    });
-    getImageBrightness("img/home/luceplan-home.jpg",function(brightness) {
-        console.log("Brightness Luceplan: "+brightness);
-    });
-});*/
+}

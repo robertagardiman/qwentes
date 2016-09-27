@@ -28,15 +28,23 @@ a.site-title {
         @include reset-hover-links();
     }
     .logo{
+        position: absolute;
         width: 120px;
         height: 40px;
         animation: sprite 5s steps(32) infinite alternate;
     }
     .logo-white{
-        background: url(../img/white-svg.svg) no-repeat;
+        background: url(../img/white-small.png) no-repeat;
+        opacity: 1;
+        transition: all 1s ease;
     }
     .logo-black{
-        background: url(../img/black-svg.svg) no-repeat;
+        background: url(../img/black-small.png) no-repeat;
+        opacity: 1;
+        transition: all 1s ease;
+    }
+    .hiddenLogo{
+        opacity: 0;
     }
 }
 
@@ -46,7 +54,7 @@ nav.home{
     a{
         @include reset-hover-links();
         color: $home-header-color;
-        transition: all 1s linear;
+        transition: all 1s ease;
         &:hover {
         }
     }
@@ -55,7 +63,7 @@ nav.home.black{
     a{
         @include reset-hover-links();
         color: $text-titles-color;
-        transition: all 1s linear;
+        transition: all 1s ease;
         &:hover {
         }
     }
@@ -63,7 +71,8 @@ nav.home.black{
 
 nav {
     font-weight: 100;
-    margin-left: 3px;
+    margin-left: 5px;
+    margin-top: 40px;
     ul{
         margin: 0;
     }
@@ -185,6 +194,39 @@ nav {
     height: 400px;
  }
 
+//flex wrapper used in footer and contact
+.flex-wrapper{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+
+.col {
+    margin-bottom: $spacing-unit / 2;
+    vertical-align: top;
+}
+
+.col-1{
+    float: right;
+}
+
+.col-2{
+    margin: 0 auto;
+}
+
+.col-3{
+    float: left;
+}
+
+//row
+/*.row{
+    outline: 1px solid red;
+    margin-bottom: 20px;
+    div{
+        outline: 1px solid blue;
+    }
+}*/
+
 
 
 /**
@@ -204,26 +246,5 @@ nav {
     }
 }
 
-.footer-wrapper{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-}
 
-.footer-col {
-    margin-bottom: $spacing-unit / 2;
-    vertical-align: top;
-}
-
-.footer-col-1{
-    float: right;
-}
-
-.footer-col-2{
-    margin: 0 auto;
-}
-
-.footer-col-3{
-    float: left;
-}
 
