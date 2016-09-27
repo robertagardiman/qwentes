@@ -1,17 +1,31 @@
-<header>
+<header class="home">
     <a class="site-title" href="{{ site.baseurl }}/">
         <div class="logo logo-black"></div>
         <div class="logo logo-white"></div>
     </a>
-    <nav class="home">
-        <ul>
+    <nav class="home navbar navbar-default" role="navigation">
+        
+        <div class = "navbar-header">
+            <button type="button" class ="navbar-toggle" data-toggle="collapse" id="btn-nav-collapse">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul>
             {% for my_page in site.pages %}
-            {% if my_page.title %}
+                {% if my_page.title %}
                 <li>
-                    <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                    <a href="{{ my_page.url | prepend: site.baseurl }}" {% if my_page.url == page.url %} class="active" {% endif %} >{{ my_page.title }}</a>
                 </li>
-            {% endif %}
+                {% endif %}
             {% endfor %}
-        </ul>
+            </ul>
+        </div>
+
     </nav>
 </header>

@@ -1,7 +1,7 @@
 /**
  * Site header
  */
-header {
+header{
     // Positioning context for the mobile navigation icon
     position: absolute;
     top: $spacing-unit;
@@ -14,16 +14,22 @@ header {
     @media(max-width: $screen-xs-max){
         position: static;
         width: 100%;
-        padding: 5%;
+        padding: 5% 5% 0 5%;
+        margin-bottom: 5%;
+        border-bottom: 1px solid #ccc;
     }
+}
 
-
-
-    /*a{
-        &:hover {
-            border-bottom: 0px solid $home-header-color;
-        }
-    }*/
+header.home{
+    @media(max-width: $screen-xs-max){
+        position: absolute;
+        width: 100%;
+        padding: 5% 5% 0 5%;
+        margin-bottom: 5%;
+        top: 0;
+        left: 0;
+        border-bottom: 0px solid transparent;
+    }
 }
 
 a.site-title {
@@ -39,41 +45,20 @@ a.site-title {
         position: absolute;
         width: 120px;
         height: 40px;
-        animation: sprite 5s steps(32) infinite alternate;
+        animation: sprite 1s steps(16) 3;
     }
     .logo-white{
-        background: url(../img/white-small.png) no-repeat;
+        background: url(../img/sprite-1-white.png) no-repeat;
         opacity: 1;
         transition: all 1s ease;
     }
     .logo-black{
-        background: url(../img/black-small.png) no-repeat;
+        background: url(../img/sprite-1-black.png) no-repeat;
         opacity: 1;
         transition: all 1s ease;
     }
     .hiddenLogo{
         opacity: 0;
-    }
-}
-
-
-
-nav.home{
-    a{
-        @include reset-hover-links();
-        color: $home-header-color;
-        transition: all 1s ease;
-        &:hover {
-        }
-    }
-}
-nav.home.black{
-    a{
-        @include reset-hover-links();
-        color: $text-titles-color;
-        transition: all 1s ease;
-        &:hover {
-        }
     }
 }
 
@@ -83,6 +68,11 @@ nav {
     margin-top: 40px;
     ul{
         margin: 0;
+        li{
+             @media(max-width: $screen-xs-max){
+                margin: 10px 0;
+            }
+        }
     }
     a{
         @include reset-hover-links();
@@ -96,18 +86,50 @@ nav {
     }
 }
 
+nav.home.navbar-default{
+    a{
+        @include reset-hover-links();
+        color: $home-header-color;
+        transition: all 1s ease;
+        &:hover {
+        }
+    }
+    .navbar-collapse{
+        background-color: transparent;
+    }
+    .icon-bar{
+        background-color: #fff;
+        transition: all 1s ease;
+    }
+}
+
 .navbar-default{
     background-color: transparent;
     border: 0px solid transparent;
     position: relative;
     min-height: 0;
+    @media(max-width: $screen-xs-max){
+        margin-bottom: 0;
+    }
     .navbar-collapse{
         padding:0;
         position: absolute;
         width: 100%;
         height: 100vh;
         background-color: #fff;
-
+        border-top: 0px solid transparent;
+        transition: all .5s ease;
+        @media(max-width: $screen-xs-max){
+            z-index: 1;
+            left: 0;
+            margin-top: 10px;
+        }
+    }
+    .collapse{
+        @media(max-width: $screen-xs-max){
+            display: block;
+            left: -120%;
+        }
     }
     .navbar-toggle{
         border-color: transparent;
@@ -124,17 +146,43 @@ nav {
         .long{
             width: 40px;
         }
+        &:hover, &:focus{
+            background-color: transparent;
+        }
     }
-
-    .collapse{}
-
-
-
+    .navbar-header{
+        @media(max-width: $screen-xs-max){
+            margin-bottom: 5%;
+        }
+    }
+    @media(max-width: $screen-xs-max){
+        margin-top: 20px;
+    }
 }
+
+nav.home.black.navbar-default{
+    a{
+        @include reset-hover-links();
+        color: $text-titles-color;
+        transition: all 1s ease;
+        &:hover {
+        }
+    }
+    .icon-bar{
+        background-color: $text-titles-color;
+    }
+}
+
+
+
+
+
+
+
 
 @keyframes sprite {
     from {background-position: 0px;}
-    to {background-position: -3840px;}
+    to {background-position: -1920px;}
 }
 
 
@@ -147,6 +195,20 @@ nav {
 .page-content.home{
     height: 100vh;
     width: 100%;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+    transition: all .5s linear;
+}
+
+.page-content.home.blurr-effect{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 .page-content{
@@ -197,8 +259,8 @@ nav {
             }
         }
         @media(max-width: $screen-xs-max){
-            width: calc(100% - (#{$spacing-content}*2 + 5px) );
-            margin: $spacing-content;
+            width: calc(100% - (#{$spacing-content}*2 + 5px ));
+            margin: $spacing-content $spacing-content 120px $spacing-content;
         }
         
     }
@@ -221,7 +283,27 @@ nav {
             }
         }
     }
-    
+    .carousel-fade {
+        .carousel-inner {
+            transition: opacity 1s linear;
+            .item {
+                opacity: 0;
+                transition: opacity 1s linear;
+            }
+            
+            .active.left,
+            .active.right{
+                opacity: 0;
+            }
+
+            .active,
+            .next.left,
+            .prev.right{
+                opacity: 1;
+            }
+        }
+    }
+
 }
 
 .img-copy{
@@ -262,13 +344,9 @@ nav {
 }
 
 //row
-/*.row{
-    outline: 1px solid red;
-    margin-bottom: 20px;
-    div{
-        outline: 1px solid blue;
-    }
-}*/
+.row{
+    z-index: 0;
+}
 
 
 

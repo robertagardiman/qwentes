@@ -126,3 +126,7 @@ a {
     font-size: $small-font-size;
     font-weight: $base-font-weight
 }
+.fix-height{
+    height: 100vh;
+    overflow: hidden;
+}

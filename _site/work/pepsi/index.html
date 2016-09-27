@@ -20,45 +20,59 @@
 
     <body>
 
-        <header>
+        <header class="home">
     <a class="site-title" href="/">
         <div class="logo logo-black"></div>
         <div class="logo logo-white"></div>
     </a>
-    <nav class="home">
-        <ul>
+    <nav class="home navbar navbar-default" role="navigation">
+        
+        <div class = "navbar-header">
+            <button type="button" class ="navbar-toggle" data-toggle="collapse" id="btn-nav-collapse">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul>
             
-            
+                
                 <li>
-                    <a href="/company/">Company</a>
+                    <a href="/company/"  >Company</a>
                 </li>
+                
             
-            
-            
+                
                 <li>
-                    <a href="/work/">Work</a>
+                    <a href="/work/"  >Work</a>
                 </li>
+                
             
-            
-            
+                
                 <li>
-                    <a href="/careers/">Careers</a>
+                    <a href="/careers/"  >Careers</a>
                 </li>
+                
             
-            
-            
+                
                 <li>
-                    <a href="/contact/">Contact</a>
+                    <a href="/contact/"  >Contact</a>
                 </li>
+                
             
+                
             
+                
             
+                
             
-            
-            
-            
-            
-        </ul>
+            </ul>
+        </div>
+
     </nav>
 </header>
 
@@ -146,6 +160,8 @@
     //
     $("#btn-nav-collapse").click(function(){
         $(".navbar-collapse").toggleClass("collapse");
+        $("html").toggleClass('fix-height');
+        $(".page-content").toggleClass("blurr-effect");
     });
 </script>
 
