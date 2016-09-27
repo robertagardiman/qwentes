@@ -2,8 +2,20 @@
     <a class="site-title" href="{{ site.baseurl }}/">
         <div class="logo logo-black"></div>
     </a>
-    <nav>
-        <ul>
+    <nav class="navbar navbar-default" role="navigation">
+        
+        <div class = "navbar-header">
+            <button type="button" class ="navbar-toggle" data-toggle="collapse" id="btn-nav-collapse">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar long"></span>
+                <span class = "icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul>
             {% for my_page in site.pages %}
                 {% if my_page.title %}
                 <li>
@@ -11,6 +23,8 @@
                 </li>
                 {% endif %}
             {% endfor %}
-        </ul>
+            </ul>
+        </div>
+
     </nav>
 </header>
