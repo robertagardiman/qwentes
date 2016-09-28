@@ -333,7 +333,76 @@ nav.home.black.navbar-default{
     right: 30px;
     color: $home-header-color;
     font-size: $small-font-size;
+    transition: color 1s ease;
 }
+.img-copy.black{
+    color: $text-titles-color;
+}
+
+.drag-icon{
+    width: 50px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin: 15px;
+    margin-left: -25px;
+
+    .manina{
+        width: 19px;
+        height: 27px;
+        position: relative;
+        margin: auto 0;
+        margin-top: 8px;
+        opacity: 1;
+        background:url("../img/manina-white.png");
+        background-size: cover;
+        transition: background 1s ease;
+
+        animation: hand-drag 3s ease-in-out, 1s hand-disappear 5s;
+        animation-fill-mode: forwards;
+    }
+    .manina.black{
+        background:url("../img/manina-black.png");
+        background-size: cover;
+    }
+
+    .drag-bar{
+        width: 10px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 1.5px;
+        position: relative;
+        display: block;
+        margin: 0;
+        transition: background-color 1s ease;
+
+        animation: drag 1.2s infinite ease-in-out alternate;
+    }
+
+    .drag-bar.black{
+        background-color: $text-titles-color;
+    }
+}
+
+@keyframes drag {
+    0% {width: 10px; left: 0;}
+    50% {width: 20px;}
+    100% {width: 10px; left: 40px;}
+}
+
+@keyframes hand-drag {
+    0% {left: 0;}
+    40% {left: 40px;}
+    80% {left: 0;}
+    100% {left: 20px;}
+}
+
+@keyframes hand-disappear {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
 
 #map {
     width: 100%;

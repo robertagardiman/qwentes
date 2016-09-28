@@ -33,7 +33,7 @@ function getImageBrightness(imageSrc,callback) {
     }
 }
 
-// Transform the navigation in black or white, depending of the brightness of the image
+// Transform the navigation, the drag-bar and the copy-image in black or white, depending of the brightness of the image
 function blackOrWhiteHeader(stile){
     getImageBrightness(stile,function(brightness) {
         console.log("Brightness "+ stile +": "+brightness);
@@ -44,11 +44,17 @@ function blackOrWhiteHeader(stile){
             $(".logo.logo-white").addClass("hiddenLogo");
             $(".logo.logo-black").removeClass("hiddenLogo");
             $("nav").addClass("black");
+            $(".drag-bar").addClass("black");
+            $(".img-copy").addClass("black");
+            $(".manina").addClass("black");
         }else{
             //need white navigation
             $(".logo.logo-black").addClass("hiddenLogo");
             $(".logo.logo-white").removeClass("hiddenLogo");
             $("nav").removeClass("black");
+            $(".drag-bar").removeClass("black");
+            $(".img-copy").removeClass("black");
+            $(".manina").removeClass("black");
         }
     });
 }
