@@ -52,3 +52,36 @@ function blackOrWhiteHeader(stile){
         }
     });
 }
+
+//Set random Time
+function setRandomTime(){
+    var randomTime = Math.floor((Math.random() * 15000) + 5000);
+    //var randomTime = Math.floor((Math.random() * 5000));
+    return randomTime;
+}
+
+//Set random Sprite
+function setRandomSprite(){
+    var randomSprite = Math.floor((Math.random() * 3) + 1);
+    return randomSprite;
+}
+
+//Add class sprite-1/2/3 in a random time
+function addSpritesRandom(whereIs, randomSprite){
+    console.log("Random sprite: " + randomSprite);
+    if(whereIs == "home"){
+        for(var i = 1; i <= 3; i++){
+            $(".logo.logo-white").removeClass("sprite-white-"+i);
+            $(".logo.logo-black").removeClass("sprite-black-"+i);
+        }
+        $(".logo.logo-white").addClass("sprite-white-"+randomSprite);
+        $(".logo.logo-black").addClass("sprite-black-"+randomSprite);
+    }else{
+        for(var i = 1; i <= 3; i++){
+            $(".logo.logo-black").removeClass("sprite-black-"+i);
+        }
+        $(".logo.logo-black").addClass("sprite-black-"+randomSprite);
+    }
+}
+
+

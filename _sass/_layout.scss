@@ -1,7 +1,7 @@
 /**
  * Site header
  */
-header {
+header{
     // Positioning context for the mobile navigation icon
     position: absolute;
     top: $spacing-unit;
@@ -14,16 +14,22 @@ header {
     @media(max-width: $screen-xs-max){
         position: static;
         width: 100%;
-        padding: 5%;
+        padding: 5% 5% 0 5%;
+        margin-bottom: 5%;
+        border-bottom: 1px solid #ccc;
     }
+}
 
-
-
-    /*a{
-        &:hover {
-            border-bottom: 0px solid $home-header-color;
-        }
-    }*/
+header.home{
+    @media(max-width: $screen-xs-max){
+        position: absolute;
+        width: 100%;
+        padding: 5% 5% 0 5%;
+        margin-bottom: 5%;
+        top: 0;
+        left: 0;
+        border-bottom: 0px solid transparent;
+    }
 }
 
 a.site-title {
@@ -39,41 +45,43 @@ a.site-title {
         position: absolute;
         width: 120px;
         height: 40px;
-        animation: sprite 5s steps(32) infinite alternate;
     }
     .logo-white{
-        background: url(../img/white-small.png) no-repeat;
         opacity: 1;
-        transition: all 1s ease;
+        transition: opacity 1s ease;
+        background: url(../img/sprites/sprite-1-white.png) no-repeat;
     }
     .logo-black{
-        background: url(../img/black-small.png) no-repeat;
         opacity: 1;
-        transition: all 1s ease;
+        transition: opacity 1s ease;
+        background: url(../img/sprites/sprite-1-black.png) no-repeat;
+    }
+    .sprite-white-1{
+        background: url(../img/sprites/sprite-1-white.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-black-1{
+        background: url(../img/sprites/sprite-1-black.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-white-2{
+        background: url(../img/sprites/sprite-2-white.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-black-2{
+        background: url(../img/sprites/sprite-2-black.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-white-3{
+        background: url(../img/sprites/sprite-3-white.png) no-repeat;
+        animation: sprite3 3s steps(16) 1;
+    }
+    .sprite-black-3{
+        background: url(../img/sprites/sprite-3-black.png) no-repeat;
+        animation: sprite3 3s steps(16) 1;
     }
     .hiddenLogo{
         opacity: 0;
-    }
-}
-
-
-
-nav.home{
-    a{
-        @include reset-hover-links();
-        color: $home-header-color;
-        transition: all 1s ease;
-        &:hover {
-        }
-    }
-}
-nav.home.black{
-    a{
-        @include reset-hover-links();
-        color: $text-titles-color;
-        transition: all 1s ease;
-        &:hover {
-        }
     }
 }
 
@@ -83,6 +91,11 @@ nav {
     margin-top: 40px;
     ul{
         margin: 0;
+        li{
+             @media(max-width: $screen-xs-max){
+                margin: 10px 0;
+            }
+        }
     }
     a{
         @include reset-hover-links();
@@ -96,18 +109,50 @@ nav {
     }
 }
 
+nav.home.navbar-default{
+    a{
+        @include reset-hover-links();
+        color: $home-header-color;
+        transition: all 1s ease;
+        &:hover {
+        }
+    }
+    .navbar-collapse{
+        background-color: transparent;
+    }
+    .icon-bar{
+        background-color: #fff;
+        transition: all 1s ease;
+    }
+}
+
 .navbar-default{
     background-color: transparent;
     border: 0px solid transparent;
     position: relative;
     min-height: 0;
+    @media(max-width: $screen-xs-max){
+        margin-bottom: 0;
+    }
     .navbar-collapse{
         padding:0;
         position: absolute;
         width: 100%;
         height: 100vh;
         background-color: #fff;
-
+        border-top: 0px solid transparent;
+        transition: all .5s ease;
+        @media(max-width: $screen-xs-max){
+            z-index: 1;
+            left: 0;
+            margin-top: 10px;
+        }
+    }
+    .collapse{
+        @media(max-width: $screen-xs-max){
+            display: block;
+            left: -120%;
+        }
     }
     .navbar-toggle{
         border-color: transparent;
@@ -124,17 +169,42 @@ nav {
         .long{
             width: 40px;
         }
+        &:hover, &:focus{
+            background-color: transparent;
+        }
     }
-
-    .collapse{}
-
-
-
+    .navbar-header{
+        @media(max-width: $screen-xs-max){
+            margin-bottom: 5%;
+        }
+    }
+    @media(max-width: $screen-xs-max){
+        margin-top: 20px;
+    }
 }
 
-@keyframes sprite {
+nav.home.black.navbar-default{
+    a{
+        @include reset-hover-links();
+        color: $text-titles-color;
+        transition: all 1s ease;
+        &:hover {
+        }
+    }
+    .icon-bar{
+        background-color: $text-titles-color;
+    }
+}
+
+
+//Animations
+@keyframes sprite12 {
     from {background-position: 0px;}
-    to {background-position: -3840px;}
+    to {background-position: -1800px;}
+}
+@keyframes sprite3 {
+    from {background-position: 0px;}
+    to {background-position: -1920px;}
 }
 
 
@@ -147,6 +217,20 @@ nav {
 .page-content.home{
     height: 100vh;
     width: 100%;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+    transition: all .5s linear;
+}
+
+.page-content.home.blurr-effect{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 .page-content{
@@ -174,6 +258,9 @@ nav {
             font-size: $base-font-size;
             font-weight: 400;
             color: $text-titles-color;
+            @media(max-width: $screen-xs-max){
+                font-size: $base-font-size-mobile;
+            }
         }
         img{
             width: 100%;
@@ -197,8 +284,8 @@ nav {
             }
         }
         @media(max-width: $screen-xs-max){
-            width: calc(100% - (#{$spacing-content}*2 + 5px) );
-            margin: $spacing-content;
+            width: calc(100% - (#{$spacing-content}*2 + 5px ));
+            margin: $spacing-content $spacing-content 120px $spacing-content;
         }
         
     }
@@ -212,16 +299,32 @@ nav {
         height: 100%;
         .carousel-inner{
             height: 100%;
+            //position: relative;
             .item{
                 height: 100%;
                 width: 100%;
-                //background: url(../img/home/pepsi-home.jpg) center;
                 background-size: cover;
-                z-index: 1;
+                display: block;
+                position: absolute;
             }
         }
     }
-    
+    .carousel-fade {
+        .carousel-inner {
+            .item {
+                opacity: 0;
+                -webkit-transition: opacity 1.5s;
+                -moz-transition: opacity 1.5s;
+                -ms-transition: opacity 1.5s;
+                -o-transition: opacity 1.5s;
+                transition: opacity 1.5s;
+            }
+            .item.active{
+                left:0;
+                opacity:1;
+            }
+        }
+    }
 }
 
 .img-copy{
@@ -237,38 +340,42 @@ nav {
     height: 400px;
  }
 
-//flex wrapper used in footer and contact
-.flex-wrapper{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-}
-
 .col {
     margin-bottom: $spacing-unit / 2;
     vertical-align: top;
+    @media(max-width: $screen-sm-max){
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
 }
 
 .col-1{
-    float: right;
+    float: left;
+    @media(max-width: $screen-sm-max){
+       float: none;
+    }
 }
 
 .col-2{
     margin: 0 auto;
+    width: 261px;
+    @media(max-width: $screen-sm-max){
+       width: 100%;
+    }
 }
 
 .col-3{
-    float: left;
+    float: right;
+    @media(max-width: $screen-sm-max){
+       float: none;
+    }
 }
 
 //row
-/*.row{
-    outline: 1px solid red;
-    margin-bottom: 20px;
-    div{
-        outline: 1px solid blue;
-    }
-}*/
+.row{
+    z-index: 0;
+}
 
 
 
@@ -286,6 +393,9 @@ nav {
     .cookies{
         float: left;
         margin-right: 20px;
+        @media(max-width: $screen-sm-max){
+            float: none;
+        }
     }
 }
 
