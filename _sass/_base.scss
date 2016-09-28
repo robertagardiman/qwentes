@@ -44,6 +44,9 @@ dl, dd, ol, ul, figure {
 h5{
     font-weight: 700;
     font-size: $small-font-size;
+    @media(max-width: $screen-xs-max){
+        font-size: $small-font-size-mobile;
+    }
 }
 
 
@@ -60,6 +63,9 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    @media(max-width: $screen-xs-max){
+        font: $base-font-weight #{$base-font-size-mobile}/#{$base-line-height} $base-font-family;
+    }
 }
 
 
@@ -124,7 +130,10 @@ a {
 }
 .small-text{
     font-size: $small-font-size;
-    font-weight: $base-font-weight
+    font-weight: $base-font-weight;
+    @media(max-width: $screen-xs-max){
+        font-size: $small-font-size-mobile;
+    }
 }
 .fix-height{
     height: 100vh;

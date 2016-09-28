@@ -97,36 +97,45 @@
 		    </section>
 		</div>
 		<div class="clear"></div>
-        <footer class="site-footer">
-    <div class="wrapper flex-wrapper">
-        <div class="col col-1">
-            <h5>Address</h5>
-            <p><span class="title">Qwentès Italia Srl</span><br/>Via G. Meda, 25<br/>20136 Milan, Italy</p>
-            <p class="small-text">P.Iva 03567400969<br/>Cap Soc. €.20.000,00 i.v.</p>
-            <p class="small-text">© Copyright 2002-2016</p>
-        </div>
+        <footer class="site-footer wrapper">
 
-        <div class="col col-2">
-            <h5>Phone</h5>
-            <p>+39 (02) 4548 7894/5</p>
-            <h5>Fax</h5>
-            <p>+39 (02) 4548 7896</p>
-            <h5>Also on</h5>
-            <p><a href="#">LinkedIn</a></p>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col col-1">
+                <h5>Address</h5>
+                <p><span class="title">Qwentès Italia Srl</span><br/>Via G. Meda, 25<br/>20136 Milan, Italy</p>
+                <p class="small-text">P.Iva 03567400969<br/>Cap Soc. €.20.000,00 i.v.</p>
+                <p class="small-text">© Copyright 2002-2016</p>
+            </div>
+            <div class="clear"></div>
         </div>
-
-        <div class="col col-3">
-            <h5>General</h5>
-            <p><a href="mailto:info@qwentes.it">info@qwentes.it</a></p>
-            <h5>Careers</h5>
-            
-            <p><a href="mailto:job@qwentes.it">job@qwentes.it</a></p>
-            <p class="small-text">
-                <span class="cookies">Monkey see, monkey do, we <a href="#">use cookies</a> too.<br/>View our privacy policy <a href="#">here</a>.</span>
-                <img src="../img/monkey.png" alt="Cookies" />
-            </p>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col col-2">
+                <h5>Phone</h5>
+                <p>+39 (02) 4548 7894/5</p>
+                <h5>Fax</h5>
+                <p>+39 (02) 4548 7896</p>
+                <h5>Also on</h5>
+                <p><a href="#">LinkedIn</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col col-3">
+                <h5>General</h5>
+                <p><a href="mailto:info@qwentes.it">info@qwentes.it</a></p>
+                <h5>Careers</h5>
+                
+                <p><a href="mailto:job@qwentes.it">job@qwentes.it</a></p>
+                <p class="small-text">
+                    <span class="cookies">Monkey see, monkey do, we <a href="#">use cookies</a> too.<br/>View our privacy policy <a href="#">here</a>.</span>
+                    <img src="../img/monkey.png" alt="Cookies" />
+                </p>
+            </div>
+            <div class="clear"></div>
         </div>
     </div>
+
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -135,14 +144,22 @@
 <script type="text/javascript" src="../js/script.js"></script>
 <script type="text/javascript">
 
-    $("#myCarousel").carousel();
+    $("#myCarousel").carousel({
+        interval: 6000
+    });
 
     //if exists myCarousel
     if($("#myCarousel").length){
         var stile = $("#myCarousel .item.active").attr("style");
         stile = stile.substring(stile.lastIndexOf("(")+1,stile.lastIndexOf(")"));
         blackOrWhiteHeader(stile);
-
+        setInterval(
+            function(){
+                var randomSprite = setRandomSprite();
+                console.log("lanciata la funzione con setinterval random: " + randomSprite);
+                addSpritesRandom("home", randomSprite);
+        }, setRandomTime());
+        
         $("#myCarousel").swipe({
             swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
                 if (direction == 'left') $(this).carousel('next');
@@ -158,8 +175,14 @@
                 stile = stile.substring(stile.lastIndexOf("(")+1,stile.lastIndexOf(")"));
                 blackOrWhiteHeader(stile);
             }, 800);
-            
         });
+    }else{
+        setInterval(
+            function(){
+                var randomSprite = setRandomSprite();
+                console.log("lanciata la funzione con setinterval random: " + randomSprite);
+                addSpritesRandom("noHome", randomSprite);
+        }, setRandomTime());
     }
 
     //

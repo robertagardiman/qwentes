@@ -45,17 +45,40 @@ a.site-title {
         position: absolute;
         width: 120px;
         height: 40px;
-        animation: sprite 1s steps(16) 3;
     }
     .logo-white{
-        background: url(../img/sprite-1-white.png) no-repeat;
         opacity: 1;
-        transition: all 1s ease;
+        transition: opacity 1s ease;
+        background: url(../img/sprites/sprite-1-white.png) no-repeat;
     }
     .logo-black{
-        background: url(../img/sprite-1-black.png) no-repeat;
         opacity: 1;
-        transition: all 1s ease;
+        transition: opacity 1s ease;
+        background: url(../img/sprites/sprite-1-black.png) no-repeat;
+    }
+    .sprite-white-1{
+        background: url(../img/sprites/sprite-1-white.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-black-1{
+        background: url(../img/sprites/sprite-1-black.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-white-2{
+        background: url(../img/sprites/sprite-2-white.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-black-2{
+        background: url(../img/sprites/sprite-2-black.png) no-repeat;
+        animation: sprite12 3s steps(15) 1;
+    }
+    .sprite-white-3{
+        background: url(../img/sprites/sprite-3-white.png) no-repeat;
+        animation: sprite3 3s steps(16) 1;
+    }
+    .sprite-black-3{
+        background: url(../img/sprites/sprite-3-black.png) no-repeat;
+        animation: sprite3 3s steps(16) 1;
     }
     .hiddenLogo{
         opacity: 0;
@@ -174,13 +197,12 @@ nav.home.black.navbar-default{
 }
 
 
-
-
-
-
-
-
-@keyframes sprite {
+//Animations
+@keyframes sprite12 {
+    from {background-position: 0px;}
+    to {background-position: -1800px;}
+}
+@keyframes sprite3 {
     from {background-position: 0px;}
     to {background-position: -1920px;}
 }
@@ -236,6 +258,9 @@ nav.home.black.navbar-default{
             font-size: $base-font-size;
             font-weight: 400;
             color: $text-titles-color;
+            @media(max-width: $screen-xs-max){
+                font-size: $base-font-size-mobile;
+            }
         }
         img{
             width: 100%;
@@ -274,36 +299,32 @@ nav.home.black.navbar-default{
         height: 100%;
         .carousel-inner{
             height: 100%;
+            //position: relative;
             .item{
                 height: 100%;
                 width: 100%;
-                //background: url(../img/home/pepsi-home.jpg) center;
                 background-size: cover;
-                z-index: 1;
+                display: block;
+                position: absolute;
             }
         }
     }
     .carousel-fade {
         .carousel-inner {
-            transition: opacity 1s linear;
             .item {
                 opacity: 0;
-                transition: opacity 1s linear;
+                -webkit-transition: opacity 1.5s;
+                -moz-transition: opacity 1.5s;
+                -ms-transition: opacity 1.5s;
+                -o-transition: opacity 1.5s;
+                transition: opacity 1.5s;
             }
-            
-            .active.left,
-            .active.right{
-                opacity: 0;
-            }
-
-            .active,
-            .next.left,
-            .prev.right{
-                opacity: 1;
+            .item.active{
+                left:0;
+                opacity:1;
             }
         }
     }
-
 }
 
 .img-copy{
@@ -319,28 +340,36 @@ nav.home.black.navbar-default{
     height: 400px;
  }
 
-//flex wrapper used in footer and contact
-.flex-wrapper{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-}
-
 .col {
     margin-bottom: $spacing-unit / 2;
     vertical-align: top;
+    @media(max-width: $screen-sm-max){
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
 }
 
 .col-1{
-    float: right;
+    float: left;
+    @media(max-width: $screen-sm-max){
+       float: none;
+    }
 }
 
 .col-2{
     margin: 0 auto;
+    width: 261px;
+    @media(max-width: $screen-sm-max){
+       width: 100%;
+    }
 }
 
 .col-3{
-    float: left;
+    float: right;
+    @media(max-width: $screen-sm-max){
+       float: none;
+    }
 }
 
 //row
@@ -364,6 +393,9 @@ nav.home.black.navbar-default{
     .cookies{
         float: left;
         margin-right: 20px;
+        @media(max-width: $screen-sm-max){
+            float: none;
+        }
     }
 }
 
