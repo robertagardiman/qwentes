@@ -4,6 +4,8 @@ permalink: "/careers/"
 layout: page
 ---
 
+# {{ page.title }}
+
 ## Great people, great work
 
 We are always searching for talented people who can help us grow and diversify the studio and augment our skill set. 

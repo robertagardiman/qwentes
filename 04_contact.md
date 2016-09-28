@@ -4,6 +4,8 @@ permalink: "/contact/"
 layout: page
 ---
 
+# {{ page.title }}
+
 ## {{ site.title }}
 
 <div class="row">
@@ -29,21 +31,29 @@ layout: page
 
 <div id="map"></div>
 <script>
+    var marker
 	function initMap() {
 	    var mapDiv = document.getElementById('map');
 	    var map = new google.maps.Map(mapDiv, {
-	        center: {lat: 45.4429383, lng: 9.1703584},
-	        zoom: 15
+	        center: {lat: 45.442942, lng: 9.1799191},
+	        zoom: 15,
+            scrollwheel: false
 	    });
-	    map.set('styles', [
-			
-		]);
-		var marker = new google.maps.Marker({
-			position: {lat: 45.4429383, lng: 9.1703584},
-			map: map,
-			title: 'Hello World!'
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: {lat: 45.442942, lng: 9.1799191}
         });
-	}
+        marker.addListener('click', toggleBounce);
+    }
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+}
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?callback=initMap">
