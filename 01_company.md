@@ -4,6 +4,8 @@ permalink: "/company/"
 layout: page
 ---
 
+# {{ page.title }}
+
 ## Strategic consulting, design & technology
 
 We opened shop in 2002 and have been helping companies drive a process of non-traumatic structural change through design and digital technology ever since. 

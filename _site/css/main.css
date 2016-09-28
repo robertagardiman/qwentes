@@ -5808,7 +5808,34 @@ button.close {
     display: none !important; } }
 /**
  * Mixins
- */
+ 
+@mixin hover-links($color){
+    color: $color;
+    text-decoration: none;
+    padding: .6em 0;
+    background-image: linear-gradient($color, $color);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: center bottom 30%;
+    text-shadow: 5px 0 #fff,
+                 4px 0 #fff,
+                 3px 0 #fff,
+                 2px 0 #fff,
+                 1px 0 #fff,
+                -1px 0 #fff,
+                -2px 0 #fff,
+                -3px 0 #fff,
+                -4px 0 #fff,
+                -5px 0 #fff;
+}
+
+@mixin reset-hover-links(){
+    color: inherit;
+    text-decoration: none;
+    background-image: none;
+    text-shadow: none;
+}
+*/
 /**
  * Reset some basic elements
  */
@@ -5852,25 +5879,6 @@ ul, ol, dl, figure {
 /**
  * Links
  */
-a {
-  color: #606060;
-  text-decoration: none;
-  padding: .6em 0;
-  background-image: linear-gradient(#606060, #606060);
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  background-position: center bottom 30%;
-  text-shadow: 5px 0 #fff, 4px 0 #fff, 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff, -4px 0 #fff, -5px 0 #fff; }
-  a:hover {
-    color: #2f2f2f;
-    text-decoration: none;
-    padding: .6em 0;
-    background-image: linear-gradient(#2f2f2f, #2f2f2f);
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    background-position: center bottom 30%;
-    text-shadow: 5px 0 #fff, 4px 0 #fff, 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff, -4px 0 #fff, -5px 0 #fff; }
-
 /**
  * Wrapper
  */
@@ -5937,46 +5945,38 @@ a.site-title {
   font-size: 26px;
   letter-spacing: -1px;
   padding: 0 0 40px 0;
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  background-image: none;
-  text-shadow: none; }
-  a.site-title:hover {
-    color: inherit;
-    text-decoration: none;
-    background-image: none;
-    text-shadow: none; }
+  display: inline-block;
+  position: absolute; }
   a.site-title .logo {
     position: absolute;
     width: 120px;
     height: 40px; }
   a.site-title .logo-white {
     opacity: 1;
-    transition: opacity 1s ease;
+    transition: opacity 1s linear;
     background: url(../img/sprites/sprite-1-white.png) no-repeat; }
   a.site-title .logo-black {
     opacity: 1;
-    transition: opacity 1s ease;
+    transition: opacity 1s linear;
     background: url(../img/sprites/sprite-1-black.png) no-repeat; }
   a.site-title .sprite-white-1 {
     background: url(../img/sprites/sprite-1-white.png) no-repeat;
-    animation: sprite12 3s steps(15) 1; }
+    animation: sprite 3s steps(15) 1; }
   a.site-title .sprite-black-1 {
     background: url(../img/sprites/sprite-1-black.png) no-repeat;
-    animation: sprite12 3s steps(15) 1; }
+    animation: sprite 3s steps(15) 1; }
   a.site-title .sprite-white-2 {
     background: url(../img/sprites/sprite-2-white.png) no-repeat;
-    animation: sprite12 3s steps(15) 1; }
+    animation: sprite 3s steps(15) 1; }
   a.site-title .sprite-black-2 {
     background: url(../img/sprites/sprite-2-black.png) no-repeat;
-    animation: sprite12 3s steps(15) 1; }
+    animation: sprite 3s steps(15) 1; }
   a.site-title .sprite-white-3 {
     background: url(../img/sprites/sprite-3-white.png) no-repeat;
-    animation: sprite3 3s steps(16) 1; }
+    animation: sprite 3.5s steps(15) 1; }
   a.site-title .sprite-black-3 {
     background: url(../img/sprites/sprite-3-black.png) no-repeat;
-    animation: sprite3 3s steps(16) 1; }
+    animation: sprite 3.5s steps(15) 1; }
   a.site-title .hiddenLogo {
     opacity: 0; }
 
@@ -5989,30 +5989,16 @@ nav {
     @media (max-width: 767px) {
       nav ul li {
         margin: 10px 0; } }
+    @media (max-width: 767px) {
+      nav ul li a {
+        font-size: 27px; } }
   nav a {
-    color: inherit;
-    text-decoration: none;
-    background-image: none;
-    text-shadow: none;
     color: #999; }
-  nav a.active {
-    color: #2f2f2f;
-    text-decoration: none;
-    padding: .6em 0;
-    background-image: linear-gradient(#2f2f2f, #2f2f2f);
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    background-position: center bottom 30%;
-    text-shadow: 5px 0 #fff, 4px 0 #fff, 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff, -4px 0 #fff, -5px 0 #fff; }
   @media (max-width: 767px) {
     nav {
       margin-top: 20px; } }
 
 nav.home.navbar-default a {
-  color: inherit;
-  text-decoration: none;
-  background-image: none;
-  text-shadow: none;
   color: #fff;
   transition: all 1s ease; }
 nav.home.navbar-default .navbar-collapse {
@@ -6025,10 +6011,13 @@ nav.home.navbar-default .icon-bar {
   background-color: transparent;
   border: 0px solid transparent;
   position: relative;
-  min-height: 0; }
+  min-height: 0;
+  margin-top: calc(50px + 10px); }
   @media (max-width: 767px) {
     .navbar-default {
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      margin-top: 5px;
+      padding-right: 5px; } }
   .navbar-default .navbar-collapse {
     padding: 0;
     position: absolute;
@@ -6040,53 +6029,43 @@ nav.home.navbar-default .icon-bar {
     @media (max-width: 767px) {
       .navbar-default .navbar-collapse {
         z-index: 1;
-        left: 0;
+        right: 0;
         margin-top: 10px; } }
   @media (max-width: 767px) {
     .navbar-default .collapse {
       display: block;
-      left: -120%; } }
+      right: -120%; } }
   .navbar-default .navbar-toggle {
     border-color: transparent;
     float: none;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    text-align: -webkit-right; }
     .navbar-default .navbar-toggle .icon-bar {
       background-color: #2f2f2f;
       width: 28px; }
     .navbar-default .navbar-toggle .icon-bar + .icon-bar {
-      margin-top: 8px; }
+      margin-top: 7px; }
     .navbar-default .navbar-toggle .long {
       width: 40px; }
     .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
       background-color: transparent; }
   @media (max-width: 767px) {
     .navbar-default .navbar-header {
+      text-align: right;
       margin-bottom: 5%; } }
-  @media (max-width: 767px) {
-    .navbar-default {
-      margin-top: 20px; } }
 
 nav.home.black.navbar-default a {
-  color: inherit;
-  text-decoration: none;
-  background-image: none;
-  text-shadow: none;
   color: #2f2f2f;
   transition: all 1s ease; }
 nav.home.black.navbar-default .icon-bar {
   background-color: #2f2f2f; }
 
-@keyframes sprite12 {
+@keyframes sprite {
   from {
     background-position: 0px; }
   to {
     background-position: -1800px; } }
-@keyframes sprite3 {
-  from {
-    background-position: 0px; }
-  to {
-    background-position: -1920px; } }
 /**
  * Page content
  */
@@ -6119,11 +6098,16 @@ nav.home.black.navbar-default .icon-bar {
       width: 100%;
       max-width: 800px;
       margin: 0 auto; }
-      .page-content section article .projects-list {
-        display: flex;
-        flex-flow: wrap row; }
       .page-content section article .project, .page-content section article .title-project {
-        width: 50%; }
+        padding: 0; }
+    .page-content section h1 {
+      font-size: 27px;
+      color: #2f2f2f;
+      margin-bottom: 40px;
+      display: none; }
+      @media (max-width: 767px) {
+        .page-content section h1 {
+          display: block; } }
     .page-content section h2 {
       font-size: 27px;
       font-weight: 400;
@@ -6139,10 +6123,6 @@ nav.home.black.navbar-default .icon-bar {
       display: block;
       font-size: 27px; }
       .page-content section p.btn a {
-        color: inherit;
-        text-decoration: none;
-        background-image: none;
-        text-shadow: none;
         padding: 10px 80px;
         border: 1px solid #828282;
         font-weight: 400;
@@ -6188,6 +6168,11 @@ nav.home.black.navbar-default .icon-bar {
   color: #fff;
   font-size: 16px;
   transition: color 1s ease; }
+  @media (max-width: 767px) {
+    .img-copy {
+      bottom: 10px;
+      right: 10px;
+      font-size: 10px; } }
 
 .img-copy.black {
   color: #2f2f2f; }
