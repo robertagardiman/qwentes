@@ -61,7 +61,7 @@ function blackOrWhiteHeader(stile){
 
 //Set random Time
 function setRandomTime(){
-    var randomTime = Math.floor((Math.random() * 15000) + 5000);
+    var randomTime = Math.floor((Math.random() * 3000) + 0);
     //var randomTime = Math.floor((Math.random() * 5000));
     return randomTime;
 }
@@ -85,8 +85,10 @@ function addSpritesRandom(whereIs, randomSprite){
     }else{
         for(var i = 1; i <= 3; i++){
             $(".logo.logo-black").removeClass("sprite-black-"+i);
+            console.log("Remove: " + i);
         }
         $(".logo.logo-black").addClass("sprite-black-"+randomSprite);
+        console.log("Add: " + randomSprite);
     }
 }
 

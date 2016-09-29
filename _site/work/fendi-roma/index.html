@@ -166,7 +166,7 @@
                 var randomSprite = setRandomSprite();
                 console.log("lanciata la funzione con setinterval random: " + randomSprite);
                 addSpritesRandom("home", randomSprite);
-        }, setRandomTime());
+        }, 5000);
         
         $("#myCarousel").swipe({
             swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -189,8 +189,8 @@
             function(){
                 var randomSprite = setRandomSprite();
                 console.log("lanciata la funzione con setinterval random: " + randomSprite);
-                addSpritesRandom("noHome", randomSprite);
-        }, setRandomTime());
+                addSpritesRandom("noHome", 3);
+        }, 5000);
     }
 
     //

@@ -57,27 +57,39 @@ a.site-title {
     }
     .sprite-white-1{
         background: url(../img/sprites/sprite-1-white.png) no-repeat;
+        background-position: 0;
         animation: sprite 3s steps(15) 1;
+        animation-fill-mode: backwards;
     }
     .sprite-black-1{
         background: url(../img/sprites/sprite-1-black.png) no-repeat;
-        animation: sprite 3s steps(15) 1;
+        background-position: 0;
+        animation: spritesmall 1.2s steps(12);
+        animation-fill-mode: backwards;
     }
     .sprite-white-2{
         background: url(../img/sprites/sprite-2-white.png) no-repeat;
+        background-position: 0;
         animation: sprite 3s steps(15) 1;
+        animation-fill-mode: backwards;
     }
     .sprite-black-2{
         background: url(../img/sprites/sprite-2-black.png) no-repeat;
+        background-position: 0;
         animation: sprite 3s steps(15) 1;
+        animation-fill-mode: backwards;
     }
     .sprite-white-3{
         background: url(../img/sprites/sprite-3-white.png) no-repeat;
+        background-position: 0;
         animation: sprite 3.5s steps(15) 1;
+        animation-fill-mode: backwards;
     }
     .sprite-black-3{
         background: url(../img/sprites/sprite-3-black.png) no-repeat;
+        background-position: 0;
         animation: sprite 3.5s steps(15) 1;
+        animation-fill-mode: backwards;
     }
     .hiddenLogo{
         opacity: 0;
@@ -148,14 +160,14 @@ nav.home.navbar-default{
         transition: all .5s ease;
         @media(max-width: $screen-xs-max){
             z-index: 1;
-            right: 0;
+            left: 0;
             margin-top: 10px;
         }
     }
     .collapse{
         @media(max-width: $screen-xs-max){
             display: block;
-            right: -120%;
+            left: -120%;
         }
     }
     .navbar-toggle{
@@ -203,6 +215,10 @@ nav.home.black.navbar-default{
 @keyframes sprite {
     from {background-position: 0px;}
     to {background-position: -1800px;}
+}
+@keyframes spritesmall {
+    from {background-position: 0px;}
+    to {background-position: -1440px;}
 }
 
 

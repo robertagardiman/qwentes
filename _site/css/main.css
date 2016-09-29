@@ -5961,22 +5961,34 @@ a.site-title {
     background: url(../img/sprites/sprite-1-black.png) no-repeat; }
   a.site-title .sprite-white-1 {
     background: url(../img/sprites/sprite-1-white.png) no-repeat;
-    animation: sprite 3s steps(15) 1; }
+    background-position: 0;
+    animation: sprite 3s steps(15) 1;
+    animation-fill-mode: backwards; }
   a.site-title .sprite-black-1 {
     background: url(../img/sprites/sprite-1-black.png) no-repeat;
-    animation: sprite 3s steps(15) 1; }
+    background-position: 0;
+    animation: spritesmall 1.2s steps(12);
+    animation-fill-mode: backwards; }
   a.site-title .sprite-white-2 {
     background: url(../img/sprites/sprite-2-white.png) no-repeat;
-    animation: sprite 3s steps(15) 1; }
+    background-position: 0;
+    animation: sprite 3s steps(15) 1;
+    animation-fill-mode: backwards; }
   a.site-title .sprite-black-2 {
     background: url(../img/sprites/sprite-2-black.png) no-repeat;
-    animation: sprite 3s steps(15) 1; }
+    background-position: 0;
+    animation: sprite 3s steps(15) 1;
+    animation-fill-mode: backwards; }
   a.site-title .sprite-white-3 {
     background: url(../img/sprites/sprite-3-white.png) no-repeat;
-    animation: sprite 3.5s steps(15) 1; }
+    background-position: 0;
+    animation: sprite 3.5s steps(15) 1;
+    animation-fill-mode: backwards; }
   a.site-title .sprite-black-3 {
     background: url(../img/sprites/sprite-3-black.png) no-repeat;
-    animation: sprite 3.5s steps(15) 1; }
+    background-position: 0;
+    animation: sprite 3.5s steps(15) 1;
+    animation-fill-mode: backwards; }
   a.site-title .hiddenLogo {
     opacity: 0; }
 
@@ -6029,12 +6041,12 @@ nav.home.navbar-default .icon-bar {
     @media (max-width: 767px) {
       .navbar-default .navbar-collapse {
         z-index: 1;
-        right: 0;
+        left: 0;
         margin-top: 10px; } }
   @media (max-width: 767px) {
     .navbar-default .collapse {
       display: block;
-      right: -120%; } }
+      left: -120%; } }
   .navbar-default .navbar-toggle {
     border-color: transparent;
     float: none;
@@ -6066,6 +6078,11 @@ nav.home.black.navbar-default .icon-bar {
     background-position: 0px; }
   to {
     background-position: -1800px; } }
+@keyframes spritesmall {
+  from {
+    background-position: 0px; }
+  to {
+    background-position: -1440px; } }
 /**
  * Page content
  */
